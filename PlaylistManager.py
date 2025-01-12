@@ -1,3 +1,4 @@
 
 class PlaylistManager:
-    def __init__(self, playlist,
+    def __init__(self, playlist):
+        pass
