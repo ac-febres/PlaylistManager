@@ -28,3 +28,59 @@ def main():
     print("")
     border()
 main()
+
+# main.py
+import time
+from Library import Library
+from PlaylistManager import PlaylistManager
+
+def border():
+    print("--------------------------------------------------")
+
+def main():
+    library = Library()
+    playlist_manager = PlaylistManager(library)
+
+    while True:
+        border()
+        print("Music Library Menu:")
+        print("1. Add Song")
+        print("2. Create Playlist")
+        print("3. Add Song to Playlist")
+        print("4. Display Playlists")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            title = input("Enter song title: ")
+            artist = input("Enter artist: ")
+            album = input("Enter album: ")
+            year = input("Enter year: ")
+            duration = input("Enter duration: ")
+            album_art = input("Enter album art: ")
+            song = Song(title, artist, album, year, duration, album_art)
+            library.add_song(song)
+            print("Song added successfully.")
+        elif choice == '2':
+            playlist_name = input("Enter playlist name: ")
+            library.create_playlist(playlist_name)
+            print("Playlist created successfully.")
+        elif choice == '3':
+            playlist_name = input("Enter playlist name: ")
+            song_title = input("Enter song title to add: ")
+            song = next((s for s in library.songs if s.title == song_title), None)
+            if song:
+                library.add_song_to_playlist(playlist_name, song)
+                print("Song added to playlist successfully.")
+            else:
+                print("Song not found in library.")
+        elif choice == '4':
+            playlist_manager.display_playlists()
+        elif choice == '5':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
