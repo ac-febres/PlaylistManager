@@ -1,4 +1,6 @@
 import json
+from SongClass import Song
+from PlaylistManager import PlaylistManager
 
 # Library.py
 class Library:
