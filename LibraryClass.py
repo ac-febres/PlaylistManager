@@ -1,11 +1,4 @@
-class Library:
-    def __init__(self, artists, albums, songs):
-        self.library = []
-        self.playlists = {}
-        self.artists = artists
-        self.albums = albums
-        self.songs = songs
-
+import json
 
 # Library.py
 class Library:
@@ -27,3 +20,16 @@ class Library:
             self.playlists[playlist_name].append(song)
         else:
             print(f"Playlist {playlist_name} does not exist.")
+
+    def save_library(self, filename):
+        with open(filename, 'w') as file:
+            json.dump({
+                'songs': [song.__dict__ for song in self.songs],
+                'playlists': self.playlists
+            }, file)
+
+    def load_library(self, filename):
+        with open(filename, 'r') as file:
+            data = json.load(file)
+            self.songs = [Song(**song) for song in data['songs']]
+            self.playlists = data['playlists']

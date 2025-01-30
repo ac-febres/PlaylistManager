@@ -31,7 +31,7 @@ main()
 
 # main.py
 import time
-from Library import Library
+from LibraryClass import Library
 from PlaylistManager import PlaylistManager
 
 def border():
