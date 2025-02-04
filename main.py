@@ -9,10 +9,14 @@
 # The user will be able to print their music library and playlists to the console.
 # The user will be able to clear their music library and playlists.
 # The user will be able to quit the program.
-
+from LibraryClass import Library
+from PlaylistManager import PlaylistManager
+from SongClass import Song
 import time
+
 def border():
     print("--------------------------------------------------")
+
 def main():
     #Timing variable to pace print statement for user
     sleep_timing = 1
@@ -27,17 +31,6 @@ def main():
     time.sleep(sleep_timing)
     print("")
     border()
-main()
-
-# main.py
-import time
-from LibraryClass import Library
-from PlaylistManager import PlaylistManager
-
-def border():
-    print("--------------------------------------------------")
-
-def main():
     library = Library()
     playlist_manager = PlaylistManager(library)
 
