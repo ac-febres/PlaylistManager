@@ -9,9 +9,10 @@
 # The user will be able to print their music library and playlists to the console.
 # The user will be able to clear their music library and playlists.
 # The user will be able to quit the program.
-from LibraryClass import Library
-from PlaylistManager import PlaylistManager
-from SongClass import Song
+import LibraryClass as Library
+import SongClass as Song
+import PlaylistManager as Playlist
+import saveLoadLibrary as saveLoad
 import time
 
 def border():
