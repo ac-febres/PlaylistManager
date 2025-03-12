@@ -33,7 +33,7 @@ def main():
     print("")
     border()
     library = Library()
-    playlist_manager = PlaylistManager(library)
+    playlist_manager = Playlist(library)
 
     while True:
         border()
